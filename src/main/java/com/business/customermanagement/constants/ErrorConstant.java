@@ -7,7 +7,7 @@ import lombok.Getter;
 @AllArgsConstructor
 public enum ErrorConstant {
 
-	CUSTOMER_NOT_FOUND("CUSTOMER_NOT_FOUND", "Customer iwth given id does not exist"),
+	CUSTOMER_NOT_FOUND("CUSTOMER_NOT_FOUND", "Customer with given id does not exist"),
 	CUSTOMERS_NOT_FOUND("CUSTOMERS_NOT_FOUND", "Customers do not exist"),
 	SERVER_ERROR("INTERNAL_SERVER_ERROR", "Something went wrong. Please try again later");
 
