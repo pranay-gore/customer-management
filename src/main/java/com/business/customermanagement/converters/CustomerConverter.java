@@ -1,11 +1,13 @@
 package com.business.customermanagement.converters;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 import org.springframework.stereotype.Component;
+
+import com.business.customermanagement.constants.ErrorConstant;
 import com.business.customermanagement.dtos.CustomerDto;
 import com.business.customermanagement.entities.Customer;
+import com.business.customermanagement.exceptions.CustomerNotFoundException;
 
 @Component
 public class CustomerConverter {
@@ -22,12 +24,12 @@ public class CustomerConverter {
 	
 	public List<CustomerDto> entityToDto(List<Customer> customers) {
 		if(customers.isEmpty()) {
-			return new ArrayList<CustomerDto>();
+			throw new CustomerNotFoundException(ErrorConstant.CUSTOMERS_NOT_FOUND);
 		}
 		return customers.stream().map(customer -> entityToDto(customer)).collect(Collectors.toList());
 	}
 	
-	public Customer DtoToEntity(CustomerDto customerDto) {
+	public Customer dtoToEntity(CustomerDto customerDto) {
 		Customer customer = new Customer();
 		customer.setFirstName(customerDto.getFirstName());
 		customer.setLastName(customerDto.getLastName());
@@ -36,7 +38,7 @@ public class CustomerConverter {
 		return customer;
 	}
 	
-	public List<Customer> DtoToEntity(List<CustomerDto> customerDtos) {
-		return customerDtos.stream().map(customerDto -> DtoToEntity(customerDto)).collect(Collectors.toList());
+	public List<Customer> dtoToEntity(List<CustomerDto> customerDtos) {
+		return customerDtos.stream().map(customerDto -> dtoToEntity(customerDto)).collect(Collectors.toList());
 	}
 }

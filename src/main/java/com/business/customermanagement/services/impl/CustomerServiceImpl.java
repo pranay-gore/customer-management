@@ -25,7 +25,7 @@ public class CustomerServiceImpl implements CustomerService {
 
 	@Override
 	public CustomerDto addCustomer(CustomerDto customerDto) {
-		Customer customer = customerConverter.DtoToEntity(customerDto);
+		Customer customer = customerConverter.dtoToEntity(customerDto);
 		return customerConverter.entityToDto(customerRepo.save(customer));
 	}
 
