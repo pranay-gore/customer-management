@@ -14,6 +14,7 @@ public class CustomerConverter {
 		CustomerDto customerDto = new CustomerDto();
 		customerDto.setFirstName(customer.getFirstName());
 		customerDto.setLastName(customer.getLastName());
+		customerDto.setAge(customer.getAge());
 		customerDto.setAddress(customer.getAddress());
 		customerDto.setId(customer.getId());
 		return customerDto;
@@ -27,11 +28,12 @@ public class CustomerConverter {
 	}
 	
 	public Customer DtoToEntity(CustomerDto customerDto) {
-		Customer Customer = new Customer();
-		Customer.setFirstName(customerDto.getFirstName());
-		Customer.setLastName(customerDto.getLastName());
-		Customer.setAddress(customerDto.getAddress());
-		return Customer;
+		Customer customer = new Customer();
+		customer.setFirstName(customerDto.getFirstName());
+		customer.setLastName(customerDto.getLastName());
+		customer.setAddress(customerDto.getAddress());
+		customer.setAge(customerDto.getAge());
+		return customer;
 	}
 	
 	public List<Customer> DtoToEntity(List<CustomerDto> customerDtos) {

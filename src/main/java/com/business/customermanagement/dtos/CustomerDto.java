@@ -7,9 +7,12 @@ public class CustomerDto {
 
 	private Integer id;
 	
+	
 	private String firstName;
 	
 	private String lastName;
+	
+	private int age;
 	
 	private String address;
 }

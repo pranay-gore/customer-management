@@ -1,6 +1,7 @@
 package com.business.customermanagement.controllers;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -9,6 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import com.business.customermanagement.dtos.CustomerDto;
 import com.business.customermanagement.services.CustomerService;
@@ -36,7 +38,11 @@ public class CustomerController {
 	}
 	
 	@GetMapping
-	public List<CustomerDto> getCustomers() {
-		return customerService.getAllCustomers();
+	public List<CustomerDto> getCustomers(@RequestParam(name = "fname") Optional<String> firstName,@RequestParam(name = "lname") Optional<String> lastName) {
+		if(!firstName.isPresent() && !lastName.isPresent()) {
+			return customerService.getAllCustomers();
+		} else {
+			return customerService.getByCustomerName(firstName, lastName);
+		}
 	}
 }

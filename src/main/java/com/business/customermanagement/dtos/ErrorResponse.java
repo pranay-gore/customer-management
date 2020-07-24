@@ -1,11 +1,16 @@
 package com.business.customermanagement.dtos;
 
-import lombok.Data;
+import java.time.LocalDateTime;
 
-@Data
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+
+@Getter
+@AllArgsConstructor
 public class ErrorResponse {
 	
-	private String errorCode;
-	private String errorMessage;
+	  private LocalDateTime timestamp;
+	  private String errorCode;
+	  private String errorMessage;
 
 }
