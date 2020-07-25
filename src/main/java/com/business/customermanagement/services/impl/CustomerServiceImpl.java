@@ -14,6 +14,10 @@ import com.business.customermanagement.exceptions.CustomerNotFoundException;
 import com.business.customermanagement.repositories.CustomerRepository;
 import com.business.customermanagement.services.CustomerService;
 
+/**
+ * The Class CustomerServiceImpl - includes all business logic
+ * required to perform operations on customer resource
+ */
 @Service
 public class CustomerServiceImpl implements CustomerService {
 
@@ -23,12 +27,25 @@ public class CustomerServiceImpl implements CustomerService {
 	@Autowired
 	private CustomerConverter customerConverter;
 
+	/**
+	 * Adds customer.
+	 *
+	 * @param customerDto - object representing customer
+	 * @return the added customer with id
+	 */
 	@Override
 	public CustomerDto addCustomer(CustomerDto customerDto) {
 		Customer customer = customerConverter.dtoToEntity(customerDto);
 		return customerConverter.entityToDto(customerRepo.save(customer));
 	}
 
+	/**
+	 * Updates customer.
+	 *
+	 * @param id - id of the customer
+	 * @param customerDto - object representing customer
+	 * @return the updated customer
+	 */
 	@Override
 	public CustomerDto updateCustomer(Integer id, CustomerDto customerDto) {
 		Customer customer = null;
@@ -44,6 +61,11 @@ public class CustomerServiceImpl implements CustomerService {
 		return customerConverter.entityToDto(customerRepo.save(customer));
 	}
 
+	/**
+	 * Gets all customers.
+	 *
+	 * @return the all customers
+	 */
 	@Override
 	public List<CustomerDto> getAllCustomers() {
 		List<Customer> customers = customerRepo.findAll();
@@ -54,6 +76,12 @@ public class CustomerServiceImpl implements CustomerService {
 		}
 	}
 
+	/**
+	 * Gets customer by id.
+	 *
+	 * @param id - id of the customer
+	 * @return the customer
+	 */
 	@Override
 	public CustomerDto getCustomerById(Integer id) {
 		Optional<Customer> customer = customerRepo.findById(id);
@@ -63,6 +91,13 @@ public class CustomerServiceImpl implements CustomerService {
 		return customerConverter.entityToDto(customer.get());
 	}
 
+	/**
+	 * Gets the list of customers
+	 * 
+	 * @param firstName - first name of the customer
+	 * @param lastName - last name of the customer
+	 * @return the list
+	 */
 	@Override
 	public List<CustomerDto> getByCustomerName(Optional<String> firstName, Optional<String> lastName) {
 		List<Customer> customers;

@@ -5,6 +5,9 @@ import java.time.LocalDateTime;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
+/**
+ * Represents an error response dto.
+ */
 @Getter
 @AllArgsConstructor
 public class ErrorResponse {

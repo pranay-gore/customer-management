@@ -3,6 +3,9 @@ package com.business.customermanagement.constants;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
+/**
+ * The enum ErrorConstant - declares error codes and respective messages
+ */
 @Getter
 @AllArgsConstructor
 public enum ErrorConstant {

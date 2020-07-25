@@ -10,9 +10,18 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import com.business.customermanagement.constants.ErrorConstant;
 import com.business.customermanagement.dtos.ErrorResponse;
 
+/**
+ * The Class CustomerExceptionHandler - handles all exceptions from the applications
+ */
 @ControllerAdvice
 public class CustomerExceptionHandler {
 	
+	/**
+	 * Handles CustomerNotFoundException.
+	 *
+	 * @param notFoundException - exception of type CustomerNotFoundException
+	 * @return the response entity with error code and message
+	 */
 	@ExceptionHandler(CustomerNotFoundException.class)
 	public ResponseEntity<ErrorResponse> handleCustomerNotFoundException
 		(CustomerNotFoundException notFoundException) {
@@ -20,6 +29,12 @@ public class CustomerExceptionHandler {
 		return new ResponseEntity<ErrorResponse>(errorResponse, HttpStatus.NOT_FOUND);
 	}
 	
+	/**
+	 * Handles global exception.
+	 *
+	 * @param exception the exception
+	 * @return the response entity with error code and message
+	 */
 	@ExceptionHandler(Exception.class)
 	public ResponseEntity<ErrorResponse> handleGlobalException
 		(Exception exception) {

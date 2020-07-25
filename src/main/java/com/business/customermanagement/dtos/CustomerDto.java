@@ -2,6 +2,9 @@ package com.business.customermanagement.dtos;
 
 import lombok.Data;
 
+/**
+ * Represents a customer dto.
+ */
 @Data
 public class CustomerDto {
 

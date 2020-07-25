@@ -14,6 +14,9 @@ import org.hibernate.annotations.UpdateTimestamp;
 
 import lombok.Data;
 
+/**
+ * Represents a Customer entity.
+ */
 @Entity
 @Data
 @Table(name = "customers")
