@@ -1,4 +1,4 @@
-# customer-management
+# Customer Management Application
 
 This repository is for Customer Management Application. This application exposes REST services to access customer resource.
 
@@ -9,10 +9,10 @@ This repository is for Customer Management Application. This application exposes
 * 	[Spring Boot 2.3.1](https://spring.io/projects/spring-boot) - Framework to ease the bootstrapping and development of new Spring Applications
 * 	[H2](https://www.h2database.com/html/main.html) - The Java SQL in-memory database
 * 	[Lombok](https://projectlombok.org/) - Never write another getter or equals method again, with one annotation your class has a fully featured builder, Automate your logging variables, and much more.
-* 	[JUnit5](https://junit.org/junit5/) - a simple framework to write repeatable tests.
-* 	[Swagger 2](https://swagger.io/) - Open-Source software framework backed by a large ecosystem of tools that helps developers design, build, document, and consume RESTful Web services.
+* 	[JUnit5](https://junit.org/junit5/) - A simple framework to write repeatable tests.
+* 	[Swagger 2](https://swagger.io/) - Interactive API documentation
 
-## Running the application locally
+## Running The Application Locally
 
 There are several ways to run a Spring Boot application on your local machine. One way is to execute the `main` method in the `com.business.customermanagement.CustomerManagementApplication` class from your IDE.
 
@@ -33,6 +33,14 @@ mvn spring-boot:run
 
 Note: Please make sure you have JDK 11 installed on your system as default runtime environment is set to Java 11. 
 If you have any other version installed(should be higher than JDK 1.8), please make sure you change `java.version` property in pom.xml.
+
+## Unit Testing
+
+To verify every small change in the application, unit test cases have been written using JUnit5 and Mockito. You can run following command to run all test cases,
+
+```shell
+mvn test
+```
 
 ## Swagger
 
