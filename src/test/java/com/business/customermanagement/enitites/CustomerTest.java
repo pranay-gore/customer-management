@@ -7,6 +7,7 @@ import java.time.LocalDateTime;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import com.business.customermanagement.entities.Address;
 import com.business.customermanagement.entities.Customer;
 
 public class CustomerTest {
@@ -46,9 +47,10 @@ public class CustomerTest {
 	}
 	@Test
 	public void testGetAddress() {
-		String address = "Amsterdam";
+		Address address = new Address();
+		address.setCity("Amsterdam");
 		customer.setAddress(address);
-		assertThat(address).isEqualTo(customer.getAddress());
+		assertThat("Amsterdam").isEqualTo(customer.getAddress().getCity());
 	}
 	@Test
 	public void testGetCreatedTime() {

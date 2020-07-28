@@ -9,8 +9,6 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.springframework.http.HttpStatus;
 
-import com.business.customermanagement.constants.ErrorConstant;
-
 public class CustomerExceptionHandlerTest {
 	
 	@InjectMocks

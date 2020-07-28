@@ -56,7 +56,7 @@ public class CustomerServiceImpl implements CustomerService {
 		customer = savedCustomer.get();
 		customer.setFirstName(customerDto.getFirstName());
 		customer.setLastName(customerDto.getLastName());
-		customer.setAddress(customerDto.getAddress());
+		customer.setAddress(customerDto.getCurrentAddress());
 		customer.setAge(customerDto.getAge());
 		return customerConverter.entityToDto(customerRepo.save(customer));
 	}

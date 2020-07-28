@@ -1,5 +1,7 @@
 package com.business.customermanagement.dtos;
 
+import com.business.customermanagement.entities.Address;
+
 import lombok.Data;
 
 /**
@@ -9,12 +11,12 @@ import lombok.Data;
 public class CustomerDto {
 
 	private Integer id;
-	
+
 	private String firstName;
 	
 	private String lastName;
-	
+
 	private int age;
 	
-	private String address;
+	private Address currentAddress;
 }

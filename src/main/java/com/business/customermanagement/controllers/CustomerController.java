@@ -20,7 +20,7 @@ import com.business.customermanagement.services.CustomerService;
  * to perform operations on customer resource
  */
 @RestController
-@RequestMapping("/customer")
+@RequestMapping("/customers")
 public class CustomerController {
 
 	@Autowired

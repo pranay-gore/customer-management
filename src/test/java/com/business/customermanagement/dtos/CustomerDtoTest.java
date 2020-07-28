@@ -5,6 +5,8 @@ import static org.assertj.core.api.Assertions.assertThat;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import com.business.customermanagement.entities.Address;
+
 public class CustomerDtoTest {
 	
 	CustomerDto customerDto;
@@ -42,8 +44,9 @@ public class CustomerDtoTest {
 	}
 	@Test
 	public void testGetAddress() {
-		String address = "Amsterdam";
-		customerDto.setAddress(address);
-		assertThat(address).isEqualTo(customerDto.getAddress());
+		Address address = new Address();
+		address.setCity("Amsterdam");
+		customerDto.setCurrentAddress(address);
+		assertThat("Amsterdam").isEqualTo(customerDto.getCurrentAddress().getCity());
 	}
 }
