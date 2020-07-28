@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.business.customermanagement.dtos.CustomerDto;
 import com.business.customermanagement.services.CustomerService;
 
+import io.swagger.annotations.ApiParam;
+
 /**
  * The Class CustomerController - Rest Controller where services are exposed 
  * to perform operations on customer resource
@@ -33,8 +35,8 @@ public class CustomerController {
 	 * @return customer with its newly generated id
 	 */
 	@PostMapping
-	public CustomerDto addCustomer(@RequestBody CustomerDto customerDto) {
-		return customerService.addCustomer(customerDto);
+	public CustomerDto addCustomer(@RequestBody CustomerDto customer) {
+		return customerService.addCustomer(customer);
 	}
 	
 	/**
@@ -45,8 +47,8 @@ public class CustomerController {
 	 * @return updated customer with its id
 	 */
 	@PutMapping("/{id}")
-	public CustomerDto updateCustomer(@PathVariable Integer id, @RequestBody CustomerDto customerDto) {
-		return customerService.updateCustomer(id, customerDto);
+	public CustomerDto updateCustomer(@PathVariable @ApiParam(value = "customerId", example = "1")Integer id, @RequestBody CustomerDto customer) {
+		return customerService.updateCustomer(id, customer);
 	}
 	
 	/**
@@ -56,7 +58,7 @@ public class CustomerController {
 	 * @return the customer from the database if it exists
 	 */
 	@GetMapping("/{id}")
-	public CustomerDto getCustomerById(@PathVariable Integer id) {
+	public CustomerDto getCustomerById(@PathVariable @ApiParam(value = "customerId", example = "1") Integer id) {
 		return customerService.getCustomerById(id);
 	}
 	
@@ -68,7 +70,7 @@ public class CustomerController {
 	 * @return the list of customers matching with given criteria if any exists
 	 */
 	@GetMapping
-	public List<CustomerDto> getCustomers(@RequestParam(name = "fname") Optional<String> firstName,@RequestParam(name = "lname") Optional<String> lastName) {
+	public List<CustomerDto> getCustomers(@RequestParam(name = "fname") @ApiParam(value = "firstname") Optional<String> firstName,@RequestParam(name = "lname") @ApiParam(value = "lastname") Optional<String> lastName) {
 		if(!firstName.isPresent() && !lastName.isPresent()) {
 			return customerService.getAllCustomers();
 		} else {
