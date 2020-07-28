@@ -46,18 +46,4 @@ public class CustomerExceptionHandler {
 	    return new ResponseEntity<ErrorResponse>(errorResponse, HttpStatus.BAD_REQUEST);
 	}
 
-	/**
-	 * Handles global exception.
-	 *
-	 * @param exception the exception
-	 * @return the response entity with error code and message
-	 */
-	@ExceptionHandler(Exception.class)
-	public ResponseEntity<ErrorResponse> handleGlobalException
-		(Exception exception) {
-		ErrorResponse errorResponse = new ErrorResponse(LocalDateTime.now(), ErrorConstant.SERVER_ERROR.getErrorCode(), ErrorConstant.SERVER_ERROR.getErrorMessage());
-		return new ResponseEntity<ErrorResponse>(errorResponse, HttpStatus.INTERNAL_SERVER_ERROR);
-	}
-	
-	
 }

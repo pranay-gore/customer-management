@@ -48,17 +48,13 @@ public class CustomerServiceImpl implements CustomerService {
 	 */
 	@Override
 	public CustomerDto updateCustomer(Integer id, CustomerDto customerDto) {
-		Customer customer = null;
-		Optional<Customer> savedCustomer = customerRepo.findById(id);
-		if (!savedCustomer.isPresent()) {
-			throw new CustomerNotFoundException(ErrorConstant.CUSTOMER_NOT_FOUND);
-		}
-		customer = savedCustomer.get();
-		customer.setFirstName(customerDto.getFirstName());
-		customer.setLastName(customerDto.getLastName());
-		customer.setAddress(customerDto.getCurrentAddress());
-		customer.setAge(customerDto.getAge());
-		return customerConverter.entityToDto(customerRepo.save(customer));
+		Customer savedCustomer = customerRepo.findById(id)
+				.orElseThrow(() -> new CustomerNotFoundException(ErrorConstant.CUSTOMER_NOT_FOUND));
+		savedCustomer.setFirstName(customerDto.getFirstName());
+		savedCustomer.setLastName(customerDto.getLastName());
+		savedCustomer.setAddress(customerDto.getCurrentAddress());
+		savedCustomer.setAge(customerDto.getAge());
+		return customerConverter.entityToDto(customerRepo.save(savedCustomer));
 	}
 
 	/**
@@ -84,11 +80,10 @@ public class CustomerServiceImpl implements CustomerService {
 	 */
 	@Override
 	public CustomerDto getCustomerById(Integer id) {
-		Optional<Customer> customer = customerRepo.findById(id);
-		if (!customer.isPresent()) {
-			throw new CustomerNotFoundException(ErrorConstant.CUSTOMER_NOT_FOUND);
-		}
-		return customerConverter.entityToDto(customer.get());
+		Customer customer = customerRepo.findById(id)
+				.orElseThrow(() -> new CustomerNotFoundException(ErrorConstant.CUSTOMER_NOT_FOUND));
+		
+		return customerConverter.entityToDto(customer);
 	}
 
 	/**

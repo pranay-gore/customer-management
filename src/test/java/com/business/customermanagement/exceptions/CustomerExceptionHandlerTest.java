@@ -2,6 +2,8 @@ package com.business.customermanagement.exceptions;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+import javax.validation.ConstraintViolationException;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
@@ -17,6 +19,9 @@ public class CustomerExceptionHandlerTest {
 	@Mock
 	private CustomerNotFoundException notFoundException;
 	
+	@Mock
+	private ConstraintViolationException  constraintViolationException;
+	
 	@BeforeEach
 	public void setUp() {
 		MockitoAnnotations.initMocks(this);
@@ -26,11 +31,5 @@ public class CustomerExceptionHandlerTest {
 	public void testHandleCustomerNotFoundException() {
 		assertThat(exceptionHandler.handleCustomerNotFoundException(notFoundException).getStatusCode())
 		.isEqualTo(HttpStatus.NOT_FOUND);
-	}
-	
-	@Test
-	public void testHandleGlobalException() {
-		assertThat(exceptionHandler.handleGlobalException(new Exception()).getStatusCode())
-		.isEqualTo(HttpStatus.INTERNAL_SERVER_ERROR);
 	}
 }
