@@ -42,10 +42,13 @@ To verify every small change in the application, unit test cases have been writt
 mvn test
 ```
 
-## Swagger
+## Request Details:
 
-Once application is running on port 8080, below swagger url can be used to access APIs,
-
-[http://localhost:8080/api/v1/swagger-ui.html](http://localhost:8080/api/v1/swagger-ui.html)
+| Method        | URL           | Request  | 
+| ------------- |:-------------:|-------------  |
+| POST      | http://localhost:8080/api/v1/customers | {"firstName": "string",  "lastName": "string",  "age": 0,  "currentAddress": {    "houseNumber": "string",    "street": "string",    "city": "string",    "province": "string",    "country": "string",    "pincode": "string"     }} | 
+| PUT      | http://localhost:8080/api/v1/customers/{id}      |   {“firstName”: “string”, “lastName”: “string”, “age”: 0, “currentAddress”: { “id”: 1, “houseNumber”: “string”, “street”: “string”, “city”: “string”, “province”: “string”, “country”: “string”, “pincode”: “string” }} |
+| GET | http://localhost:8080/api/v1/customers/{id}      | id = customer id   |
+| GET | http://localhost:8080/api/v1/customers/{id}?fname="firstname"&lname="lastname"      |  id = customer id, lname = lastname of the customer, fname = firstname of the customer. (Query params are optional)|
 
 
