@@ -51,4 +51,12 @@ mvn test
 | GET | http://localhost:8080/api/v1/customers/{id}      | id = customer id   |
 | GET | http://localhost:8080/api/v1/customers/{id}?fname=firstname&lname=lastname      |  id = customer id, lname = lastname of the customer, fname = firstname of the customer. (Query params are optional)|
 
+## Future Changes:
+
+API to update only address of the customer
+
+| Method        | URL           | Request  | 
+| ------------- |:-------------:|-------------  |
+| PUT      | http://localhost:8080/api/v1/customers/{id}/address | {    "houseNumber": "string",    "street": "string",    "city": "string",    "province": "string",    "country": "string",    "pincode": "string"     } | 
+
 
