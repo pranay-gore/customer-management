@@ -49,6 +49,6 @@ mvn test
 | POST      | http://localhost:8080/api/v1/customers | {"firstName": "string",  "lastName": "string",  "age": 0,  "currentAddress": {    "houseNumber": "string",    "street": "string",    "city": "string",    "province": "string",    "country": "string",    "pincode": "string"     }} | 
 | PUT      | http://localhost:8080/api/v1/customers/{id}      |   {“firstName”: “string”, “lastName”: “string”, “age”: 0, “currentAddress”: { “id”: 1, “houseNumber”: “string”, “street”: “string”, “city”: “string”, “province”: “string”, “country”: “string”, “pincode”: “string” }} |
 | GET | http://localhost:8080/api/v1/customers/{id}      | id = customer id   |
-| GET | http://localhost:8080/api/v1/customers/{id}?fname="firstname"&lname="lastname"      |  id = customer id, lname = lastname of the customer, fname = firstname of the customer. (Query params are optional)|
+| GET | http://localhost:8080/api/v1/customers/{id}?fname=firstname&lname=lastname      |  id = customer id, lname = lastname of the customer, fname = firstname of the customer. (Query params are optional)|
 
 
